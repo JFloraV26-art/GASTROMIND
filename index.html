@@ -1,0 +1,146 @@
+<!-- Extensión funcional: los nuevos elementos reutilizan la identidad visual original de GastroMind. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mesa Raíz: comida artesanal, ingredientes de temporada y pedidos preparados con cariño.">
+  <title>GastroMind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement-bar">
+    <p><span class="announcement-dot"></span> Pedidos del día abiertos · Envío gratis desde $75.000</p>
+    <a href="#como-funciona">Así funciona <span aria-hidden="true">↗</span></a>
+  </div>
+
+  <header class="site-header" id="inicio">
+    <div class="nav-shell">
+      <a class="brand" href="#inicio" aria-label="Mesa Raíz, volver al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img"><path d="M16 27.2c-5.9-5.1-9.1-9.3-9.1-13.2C6.9 9.8 10.4 7 14 7c1.2 0 2.1.4 3 1.2C17.9 7.4 18.9 7 20 7c3.6 0 7.1 2.8 7.1 7 0 3.9-3.2 8.1-9.1 13.2L16 28l-1-.8Z"/><path d="M4 14.5c3.1-1.2 5.1-3.4 5.9-6.2M28 14.5c-3.1-1.2-5.1-3.4-5.9-6.2"/></svg>
+        </span>
+        <span class="brand-copy"><strong>Gastro</strong><em>Mind</em></span>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a class="nav-link active" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#menu">Menú</a>
+        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+        <a class="nav-link" href="#nuestra-historia">Nuestra historia</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar apariencia" title="Cambiar apariencia">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.1A8.5 8.5 0 0 1 8.9 3.5 8.5 8.5 0 1 0 20.5 15.1Z"></path></svg>
+        </button>
+        <button class="account-btn" id="open-auth" type="button">Iniciar sesión</button>
+        <button class="sell-btn" id="open-publish" type="button">Vender un plato <span aria-hidden="true">＋</span></button>
+        <button class="cart-btn" id="open-cart" type="button" aria-label="Abrir carrito">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L20 8H6"></path><circle cx="9" cy="19" r="1.3"></circle><circle cx="17" cy="19" r="1.3"></circle></svg>
+          <span>Carrito</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> Comida hecha con intención</div>
+        <h1>Sabores que inspiran<br><em>tu mente.</em></h1>
+        <p class="hero-copy">Platos honestos, ingredientes de temporada y ese toque casero que convierte cualquier día en una ocasión especial.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">Explorar el menú <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#nuestra-historia">Conoce nuestra historia <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>J</span><span>M</span><span>A</span><span class="avatar-more">+2k</span>
+          </div>
+          <div><strong>4.9/5</strong><small>de familias felices</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo" role="img" aria-label="Mesa servida con comida artesanal"></div>
+        <div class="hero-note note-top"><span class="note-icon">✦</span><span><strong>100% artesanal</strong><small>Cocinado hoy</small></span></div>
+        <div class="hero-note note-bottom"><span class="note-icon note-leaf">⌁</span><span><strong>Ingredientes locales</strong><small>Directo de la huerta</small></span></div>
+        <div class="hero-stamp"><span>Desde</span><strong>2018</strong><span>con cariño</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Beneficios de Mesa Raíz">
+      <div class="trust-item"><span class="trust-icon">◌</span><div><strong>Hecho en el día</strong><span>Sin conservantes</span></div></div>
+      <div class="trust-item"><span class="trust-icon">⌁</span><div><strong>Ingredientes de aquí</strong><span>Apoyamos lo local</span></div></div>
+      <div class="trust-item"><span class="trust-icon">♡</span><div><strong>Empaque consciente</strong><span>Menos plástico, más futuro</span></div></div>
+      <div class="trust-item"><span class="trust-icon">↗</span><div><strong>Entrega con cuidado</strong><span>Llega calientito a tu puerta</span></div></div>
+    </section>
+
+    <section class="section-shell menu-section" id="menu">
+      <div class="section-heading menu-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> Recién salido de cocina</div>
+          <h2>Elige tu momento<br><em>favorito.</em></h2>
+        </div>
+        <div class="menu-heading-side"><p>Pequeños lotes, grandes sabores. Mentes inspiradas en Grande.</p><span class="open-status"><i></i> Hoy estamos cocinando</span></div>
+      </div>
+
+      <div class="menu-toolbar">
+        <div class="filter-list" role="group" aria-label="Filtrar menú">
+          <button class="filter-btn active" data-category="todos" type="button">Todo</button>
+          <button class="filter-btn" data-category="favoritos" type="button">Favoritos</button>
+          <button class="filter-btn" data-category="fuertes" type="button">Para compartir</button>
+          <button class="filter-btn" data-category="express" type="button">Express</button>
+          <button class="filter-btn" data-category="dulce" type="button">Algo dulce</button>
+        </div>
+        <label class="menu-search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg><input type="search" id="search-input" placeholder="Buscar en el menú" aria-label="Buscar en el menú"></label>
+      </div>
+
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state" id="no-results" hidden><span class="empty-icon">⌂</span><h3>No encontramos ese antojo</h3><p>Prueba con otro nombre o revisa todas las opciones del menú.</p><button class="btn btn-secondary" id="clear-search" type="button">Ver todo el menú</button></div>
+    </section>
+
+    <section class="category-section section-shell" aria-labelledby="category-title">
+      <div class="section-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> Para cada antojo</div><h2 id="category-title">Un menú con<br><em>raíces.</em></h2></div><a class="text-link" href="#menu">Ver todo el menú <span aria-hidden="true">→</span></a></div>
+      <div class="category-grid">
+        <button class="category-tile category-tile-main" data-category-link="fuertes" type="button"><span class="tile-overlay"></span><span class="tile-content"><small>01 · Para compartir</small><strong>Platos con<br>historia</strong><span class="tile-arrow">↗</span></span></button>
+        <button class="category-tile category-tile-express" data-category-link="express" type="button"><span class="tile-overlay"></span><span class="tile-content"><small>02 · Para el día a día</small><strong>Rico y<br>sin espera</strong><span class="tile-arrow">↗</span></span></button>
+        <button class="category-tile category-tile-dulce" data-category-link="dulce" type="button"><span class="tile-overlay"></span><span class="tile-content"><small>03 · Para cerrar bonito</small><strong>Un final<br>dulce</strong><span class="tile-arrow">↗</span></span></button>
+      </div>
+    </section>
+
+    <section class="story-section section-shell" id="nuestra-historia">
+      <div class="story-visual"><div class="story-photo story-photo-one"></div><div class="story-photo story-photo-two"></div><span class="story-label">Cocina<br>con raíces</span></div>
+      <div class="story-content"><div class="eyebrow"><span class="eyebrow-line"></span> Nuestra forma de hacerlo</div><h2>La comida sabe<br>mejor cuando <em>importa.</em></h2><p>En GastroMind te ofrecemos platos brillantes de mentes inspiradoras y con el tiempo para hacerlo bien y la ilusión de sentarnos a compartir.</p><p>Trabajamos con jovenes promesas que quieren demostrar que un sueño es posible si tu te lo propones. Buscan demostrar que ellos tambien pueden cumplir sus sueños de ser emprendedores con sus creaciones y sus capacidades.</p><a class="btn btn-secondary" href="#como-funciona">Conoce nuestro proceso <span aria-hidden="true">→</span></a></div>
+    </section>
+    <section class="how-section" id="como-funciona">
+      <div class="section-shell"><div class="section-heading centered-heading"><div class="eyebrow"><span class="eyebrow-line"></span> Tan fácil como antojarse</div><h2>Del fogón a<br><em>tu mesa.</em></h2></div><div class="steps-grid"><div class="how-step"><span class="step-number">01</span><span class="step-icon">⌕</span><h3>Elige tu favorito</h3><p>Explora nuestro menú de temporada y arma tu pedido a tu gusto.</p></div><div class="how-step"><span class="step-number">02</span><span class="step-icon">✦</span><h3>Lo cocinamos para ti</h3><p>Preparamos cada plato al momento, en pequeños lotes y con cariño.</p></div><div class="how-step"><span class="step-number">03</span><span class="step-icon">⌁</span><h3>Lo recibes en casa</h3><p>Coordinamos tu entrega o recogida para que llegue en su punto.</p></div></div></div>
+    </section>
+
+    <section class="reviews-section section-shell" aria-labelledby="reviews-title"><div class="section-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> Lo que dicen de nosotros</div><h2 id="reviews-title">Hecho para<br><em>compartir.</em></h2></div><div class="review-score"><strong>4.9</strong><span>★★★★★<small>+2,000 pedidos felices</small></span></div></div><div class="reviews-grid"><article class="review-card"><div class="stars">★★★★★</div><blockquote>“La lasaña sabe a domingo en casa de la abuela. Llegó calientita y la porción fue perfecta para compartir.”</blockquote><footer><span class="review-avatar">C</span><span><strong>Camila R.</strong><small>Cliente desde 2022</small></span></footer></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“Se nota que usan ingredientes de verdad. El curry de temporada es mi nuevo pedido fijo.”</blockquote><footer><span class="review-avatar avatar-gold">D</span><span><strong>Diego M.</strong><small>Cliente frecuente</small></span></footer></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“Una opción linda, rica y muy práctica para cuando quiero invitar a mis amigos sin cocinar.”</blockquote><footer><span class="review-avatar avatar-sage">L</span><span><strong>Laura P.</strong><small>Cliente desde 2023</small></span></footer></article></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-shell"><div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 27.2c-5.9-5.1-9.1-9.3-9.1-13.2C6.9 9.8 10.4 7 14 7c1.2 0 2.1.4 3 1.2C17.9 7.4 18.9 7 20 7c3.6 0 7.1 2.8 7.1 7 0 3.9-3.2 8.1-9.1 13.2L16 28l-1-.8Z"/><path d="M4 14.5c3.1-1.2 5.1-3.4 5.9-6.2M28 14.5c-3.1-1.2-5.1-3.4-5.9-6.2"/></svg></span><span class="brand-copy"><strong>Mesa</strong><em>Raíz</em></span></a><p>Comida honesta para días que merecen algo especial.</p></div><div class="footer-column"><h4>Explora</h4><a href="#menu">Menú completo</a><a href="#nuestra-historia">Nuestra historia</a><a href="#como-funciona">Cómo funciona</a></div><div class="footer-column"><h4>¿Hablamos?</h4><a href="mailto:hola@mesaraiz.co">hola@mesaraiz.co</a><a href="tel:+573001234567">+57 300 123 4567</a><span>Medellín · Colombia</span></div><div class="footer-column"><h4>Síguenos</h4><div class="social-links"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">fb</a><a href="#" aria-label="TikTok">tk</a></div><span>Hecho lento, disfrutado rápido.</span></div></div><div class="footer-bottom"><span>© 2026 Mesa Raíz. Todos los derechos reservados.</span><span>Privacidad · Términos</span></div></footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon">✓</span><span id="toast-message">Añadido al carrito</span></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-labelledby="cart-title"><div class="drawer-backdrop" id="drawer-backdrop"></div><div class="drawer-panel"><div class="drawer-header"><div><span class="eyebrow drawer-eyebrow">Tu pedido</span><h2 id="cart-title">Carrito <span id="drawer-count">(0)</span></h2></div><button class="close-btn" id="close-cart" type="button" aria-label="Cerrar carrito">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-empty" id="cart-empty"><span>⌁</span><h3>Tu carrito está esperando</h3><p>Agrega algo rico y aquí guardaremos tu pedido.</p><button class="btn btn-primary" id="start-shopping" type="button">Ver el menú</button></div><div class="drawer-footer" id="drawer-footer"><div class="delivery-callout"><span class="callout-icon">↗</span><span><strong>Envío gratis</strong><small>En pedidos desde $75.000</small></span></div><div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">$0</strong></div><div class="summary-row summary-total"><span>Total estimado</span><strong id="cart-total">$0</strong></div><button class="btn btn-primary checkout-btn" id="open-checkout" type="button">Continuar con el pedido <span>→</span></button><small class="secure-note">Pedido seguro · Confirmación por WhatsApp</small></div></div></aside>
+
+  <div class="modal" id="checkout-modal" aria-hidden="true"><div class="modal-backdrop" id="checkout-backdrop"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title"><button class="close-btn modal-close" id="close-checkout" type="button" aria-label="Cerrar formulario">×</button><div class="modal-heading"><span class="eyebrow">Último paso</span><h2 id="checkout-title">Hagamos tu pedido.</h2><p>Déjanos tus datos y te confirmaremos disponibilidad y hora de entrega.</p></div><form id="checkout-form"><div class="form-grid"><label>Nombre completo<input name="name" type="text" placeholder="Tu nombre" required></label><label>Teléfono<input name="phone" type="tel" placeholder="300 000 0000" required></label><label class="full-width">¿Cómo quieres recibirlo?<select name="fulfillment"><option value="Domicilio">Domicilio</option><option value="Recoger en cocina">Recoger en cocina</option></select></label><label class="full-width" id="address-field">Dirección de entrega<input name="address" type="text" placeholder="Calle, número, barrio"></label><label class="full-width">Nota para cocina <textarea name="notes" rows="3" placeholder="Alergias, horario ideal o algo más que debamos saber"></textarea></label></div><div class="checkout-total"><span>Total estimado</span><strong id="checkout-total">$0</strong></div><button class="btn btn-primary full-submit" type="submit">Enviar solicitud de pedido <span>→</span></button><p class="form-disclaimer">Este prototipo registra el pedido localmente. Para vender en producción, conecta este botón con tu pasarela de pago, WhatsApp Business o Shopify.</p></form><div class="order-success" id="order-success" hidden><span class="success-mark">✓</span><h3>¡Recibimos tu solicitud!</h3><p>Te contactaremos pronto para confirmar los detalles y el horario de entrega.</p><button class="btn btn-secondary" id="success-close" type="button">Volver al menú</button></div></div></div>
+
+  <div class="modal" id="auth-modal" aria-hidden="true"><div class="modal-backdrop" id="auth-backdrop"></div><div class="modal-panel account-modal-panel" role="dialog" aria-modal="true" aria-labelledby="auth-title"><button class="close-btn modal-close" id="close-auth" type="button" aria-label="Cerrar inicio de sesión">×</button><div class="modal-heading"><span class="eyebrow">Comunidad GastroMind</span><h2 id="auth-title">Inicia sesión.</h2><p id="auth-description">Entra con tu cuenta para publicar tus platos y que las personas conozcan tu propuesta.</p></div><form id="auth-form"><div class="form-grid single-column"><label>Nombre de usuario<input id="auth-username" name="username" type="text" minlength="3" maxlength="24" autocomplete="username" placeholder="Ej. cocina.de.ana" required></label><label>Contraseña<input id="auth-password" name="password" type="password" minlength="4" autocomplete="current-password" placeholder="Tu contraseña" required></label></div><button class="btn btn-primary full-submit" id="auth-submit" type="submit">Iniciar sesión <span>→</span></button><p class="form-disclaimer"><span id="auth-switch-copy">¿Aún no tienes cuenta?</span> <button class="text-button" id="auth-switch" type="button">Regístrate aquí</button></p></form></div></div>
+
+  <div class="modal" id="publish-modal" aria-hidden="true"><div class="modal-backdrop" id="publish-backdrop"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="publish-title"><button class="close-btn modal-close" id="close-publish" type="button" aria-label="Cerrar publicación de plato">×</button><div class="modal-heading"><span class="eyebrow">Tu espacio de venta</span><h2 id="publish-title">Comparte tu plato.</h2><p>Completa los datos para añadir tu creación al menú. Tu nombre de usuario se mostrará junto al plato.</p></div><form id="publish-form"><div class="form-grid single-column"><label>Foto del plato<input id="dish-image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required><small class="field-help">PNG, JPG o WEBP. Se guardará solo en este navegador.</small></label><label>Nombre del plato<input name="title" type="text" minlength="3" maxlength="60" placeholder="Ej. Sancocho de la casa" required></label><label>Precio del plato<input name="price" type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 25000" required></label></div><button class="btn btn-primary full-submit" type="submit">Publicar mi plato <span>→</span></button><p class="form-disclaimer">Al publicar, confirmas que la información y la imagen corresponden a tu plato.</p></form></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
