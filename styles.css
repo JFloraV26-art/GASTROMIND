@@ -303,6 +303,26 @@ body.dark-mode .icon-moon { display: block; }
 .success-mark { align-items: center; background: #dce8d3; border-radius: 50%; color: var(--olive); display: inline-flex; font-size: 1.4rem; height: 58px; justify-content: center; width: 58px; }
 .order-success h3 { font-family: var(--serif); font-size: 1.7rem; margin: 15px 0 7px; }
 .order-success p { color: var(--ink-soft); font-size: .76rem; line-height: 1.7; margin: 0 auto 22px; max-width: 290px; }
+.notification-btn { border: 1px solid var(--line); border-radius: 50%; font-size: 1rem; position: relative; }
+.notification-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.notification-count { align-items: center; background: var(--terracotta); border: 2px solid var(--paper); border-radius: 99px; color: #fff; display: flex; font-size: .53rem; font-weight: 700; height: 17px; justify-content: center; min-width: 17px; position: absolute; right: -4px; top: -3px; }
+.payment-instructions { display: grid; gap: 10px; margin: 0 auto 22px; max-width: 360px; text-align: left; }
+.transfer-card { background: #edf0e8; border-radius: 10px; padding: 12px 14px; }
+.transfer-card strong, .transfer-card span { display: block; }
+.transfer-card strong { color: var(--olive); font-size: .69rem; }
+.transfer-card span { color: var(--terracotta); font-family: var(--serif); font-size: 1rem; margin-top: 4px; }
+.transfer-card p { color: var(--ink-soft); font-size: .67rem; margin: 7px 0 0; }
+.seller-inbox { display: grid; gap: 25px; margin-top: 26px; }
+.seller-inbox section + section { border-top: 1px solid var(--line); padding-top: 22px; }
+.seller-inbox h3 { color: var(--ink); font-family: var(--serif); font-size: 1.25rem; letter-spacing: -.03em; margin-bottom: 12px; }
+.inbox-item, .seller-order { background: var(--cream); border-radius: 10px; margin-top: 9px; padding: 12px 14px; }
+.inbox-item.is-unread { border-left: 3px solid var(--terracotta); }
+.inbox-item strong, .seller-order strong { color: var(--ink); font-size: .72rem; }
+.inbox-item p, .seller-order p { color: var(--ink-soft); font-size: .67rem; line-height: 1.5; margin: 4px 0; }
+.inbox-item small, .seller-order small { color: #89928b; font-size: .58rem; }
+.seller-order > div { align-items: center; display: flex; justify-content: space-between; }
+.seller-order > div span { background: #dce6d3; border-radius: 99px; color: var(--olive); font-size: .56rem; font-weight: 700; padding: 4px 7px; }
+.inbox-empty { color: var(--ink-soft); font-size: .72rem; line-height: 1.6; }
 
 body.dark-mode { --ink: #f5f0e6; --ink-soft: #b8c0b8; --cream: #1d2520; --paper: #253029; --paper-muted: #303c33; --line: rgba(245,240,230,.14); --shadow: 0 18px 50px rgba(0,0,0,.26); --shadow-soft: 0 10px 26px rgba(0,0,0,.2); }
 body.dark-mode .site-header { background: rgba(29,37,32,.92); }
@@ -312,6 +332,7 @@ body.dark-mode .modal-panel, body.dark-mode .drawer-panel { background: var(--pa
 body.dark-mode .hero-photo::after { background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,.38)); }
 body.dark-mode .sell-btn { background: rgba(126,150,115,.2); }
 body.dark-mode .form-grid input[type="file"]::file-selector-button { background: var(--paper-muted); color: #f2ce91; }
+body.dark-mode .transfer-card { background: rgba(126,150,115,.18); }
 
 @media (max-width: 960px) {
   .nav-shell { padding-left: 4vw; padding-right: 4vw; }
