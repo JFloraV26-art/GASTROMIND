@@ -323,4 +323,67 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', event => { if (event.key === 'Escape') { closeCart(); closeCheckout(); closeAuth(); closePublish(); closeInbox(); } });
 
   renderAccountButton(); renderProducts(); renderCart();
+
+
+
+  // Lógica para comentarios interactivos
+  const commentForm = $('#comment-form');
+  const commentsList = $('#comments-list');
+  const getComments = () => readList('gastromind-user-comments');
+
+  function renderComments() {
+    if (!commentsList) return;
+    const comments = getComments();
+
+    if (comments.length === 0) {
+      commentsList.innerHTML = `<p style="color: var(--ink-soft); font-size: 0.8rem; grid-column: 1 / -1;">Aún no hay comentarios. ¡Sé el primero en dejar tu opinión!</p>`;
+      return;
+    }
+
+    commentsList.innerHTML = comments.map(comment => {
+      const initial = comment.author.charAt(0).toUpperCase();
+      const stars = '★'.repeat(comment.rating) + '☆'.repeat(5 - comment.rating);
+      return `
+        <article class="review-card">
+          <div class="stars">${stars}</div>
+          <blockquote>“${escapeHTML(comment.text)}”</blockquote>
+          <footer>
+            <span class="review-avatar">${initial}</span>
+            <span>
+              <strong>${escapeHTML(comment.author)}</strong>
+              <small>${comment.date}</small>
+            </span>
+          </footer>
+        </article>
+      `;
+    }).join('');
+  }
+
+  if (commentForm) {
+    commentForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const author = $('#comment-author').value.trim();
+      const rating = Number($('#comment-rating').value);
+      const text = $('#comment-text').value.trim();
+
+      if (!author || !text) return showToast('Completa todos los campos para publicar');
+
+      const comments = getComments();
+      comments.unshift({
+        id: `comment-${Date.now()}`,
+        author,
+        rating,
+        text,
+        date: new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'short', day: 'numeric' })
+      });
+
+      localStorage.setItem('gastromind-user-comments', JSON.stringify(comments));
+      commentForm.reset();
+      renderComments();
+      showToast('¡Gracias por tu comentario!');
+    });
+  }
+
+  // Inicializar renderizado de comentarios
+  renderComments();
 });

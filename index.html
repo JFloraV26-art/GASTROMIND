@@ -121,7 +121,41 @@
       <div class="section-shell"><div class="section-heading centered-heading"><div class="eyebrow"><span class="eyebrow-line"></span> Tan fácil como antojarse</div><h2>Del fogón a<br><em>tu mesa.</em></h2></div><div class="steps-grid"><div class="how-step"><span class="step-number">01</span><span class="step-icon">⌕</span><h3>Elige tu favorito</h3><p>Explora nuestro menú de temporada y arma tu pedido a tu gusto.</p></div><div class="how-step"><span class="step-number">02</span><span class="step-icon">✦</span><h3>Lo cocinamos para ti</h3><p>Preparamos cada plato al momento, en pequeños lotes y con cariño.</p></div><div class="how-step"><span class="step-number">03</span><span class="step-icon">⌁</span><h3>Lo recibes en casa</h3><p>Coordinamos tu entrega o recogida para que llegue en su punto.</p></div></div></div>
     </section>
 
-    <section class="reviews-section section-shell" aria-labelledby="reviews-title"><div class="section-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> Lo que dicen de nosotros</div><h2 id="reviews-title">Hecho para<br><em>compartir.</em></h2></div><div class="review-score"><strong>4.9</strong><span>★★★★★<small>+2,000 pedidos felices</small></span></div></div><div class="reviews-grid"><article class="review-card"><div class="stars">★★★★★</div><blockquote>“La lasaña sabe a domingo en casa de la abuela. Llegó calientita y la porción fue perfecta para compartir.”</blockquote><footer><span class="review-avatar">C</span><span><strong>Camila R.</strong><small>Cliente desde 2022</small></span></footer></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“Se nota que usan ingredientes de verdad. El curry de temporada es mi nuevo pedido fijo.”</blockquote><footer><span class="review-avatar avatar-gold">D</span><span><strong>Diego M.</strong><small>Cliente frecuente</small></span></footer></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“Una opción linda, rica y muy práctica para cuando quiero invitar a mis amigos sin cocinar.”</blockquote><footer><span class="review-avatar avatar-sage">L</span><span><strong>Laura P.</strong><small>Cliente desde 2023</small></span></footer></article></div></section>
+   <section class="reviews-section section-shell" id="comentarios" aria-labelledby="reviews-title">
+      <div class="section-heading compact-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> Déjanos tu opinión</div>
+          <h2 id="reviews-title">Comentarios de la<br><em>comunidad.</em></h2>
+        </div>
+      </div>
+
+      <!-- Formulario para agregar un nuevo comentario -->
+      <form id="comment-form" style="margin-top: 32px; background: #ece8dc; padding: 24px; border-radius: 12px;">
+        <div class="form-grid single-column" style="gap: 14px;">
+          <label>Tu nombre
+            <input type="text" id="comment-author" placeholder="Ej. Ana María" required>
+          </label>
+          <label>Puntuación
+            <select id="comment-rating" required>
+              <option value="5">★★★★★ (5/5)</option>
+              <option value="4">★★★★☆ (4/5)</option>
+              <option value="3">★★★☆☆ (3/5)</option>
+              <option value="2">★★☆☆☆ (2/5)</option>
+              <option value="1">★☆☆☆☆ (1/5)</option>
+            </select>
+          </label>
+          <label>Tu comentario
+            <textarea id="comment-text" rows="3" placeholder="Escribe tu opinión sobre nuestra propuesta o tus platos favoritos..." required minlength="5"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit" style="align-self: start; margin-top: 6px;">
+            Publicar comentario <span>→</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Contenedor donde se mostrarán los comentarios dinámicos -->
+      <div class="reviews-grid" id="comments-list" style="margin-top: 35px;"></div>
+    </section>
   </main>
 
   <footer class="site-footer"><div class="footer-shell"><div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 27.2c-5.9-5.1-9.1-9.3-9.1-13.2C6.9 9.8 10.4 7 14 7c1.2 0 2.1.4 3 1.2C17.9 7.4 18.9 7 20 7c3.6 0 7.1 2.8 7.1 7 0 3.9-3.2 8.1-9.1 13.2L16 28l-1-.8Z"/><path d="M4 14.5c3.1-1.2 5.1-3.4 5.9-6.2M28 14.5c-3.1-1.2-5.1-3.4-5.9-6.2"/></svg></span><span class="brand-copy"><strong>Mesa</strong><em>Raíz</em></span></a><p>Comida honesta para días que merecen algo especial.</p></div><div class="footer-column"><h4>Explora</h4><a href="#menu">Menú completo</a><a href="#nuestra-historia">Nuestra historia</a><a href="#como-funciona">Cómo funciona</a></div><div class="footer-column"><h4>¿Hablamos?</h4><a href="mailto:hola@mesaraiz.co">hola@mesaraiz.co</a><a href="tel:+573001234567">+57 300 123 4567</a><span>Medellín · Colombia</span></div><div class="footer-column"><h4>Síguenos</h4><div class="social-links"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">fb</a><a href="#" aria-label="TikTok">tk</a></div><span>Hecho lento, disfrutado rápido.</span></div></div><div class="footer-bottom"><span>© 2026 Mesa Raíz. Todos los derechos reservados.</span><span>Privacidad · Términos</span></div></footer>
