@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const accounts = getAccounts(); const existing = accounts.find(account => account.username.toLowerCase() === username.toLowerCase());
     if (authMode === 'register') { if (existing) return showToast('Ese nombre de usuario ya existe'); accounts.push({ username, password, createdAt: new Date().toISOString() }); saveAccounts(accounts); }
     else if (!existing || existing.password !== password) return showToast('Usuario o contraseña incorrectos');
-    state.currentUser = { username }; localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser)); renderAccountButton(); closeAuth(); showToast(authMode === 'register' ? `¡Bienvenido, @${username}!` : `Sesión iniciada como @${username}`);
+    state.currentUser = { username }; localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser)); renderAccountButton(); closeAuth(); showToast(authMode === 'register' ? `¡Bienvenido, @${username}!` : `Iniciaste sesión como @${username}`);
     if (publishAfterAuth) { publishAfterAuth = false; openPublish(); }
   });
 
