@@ -317,32 +317,91 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   authSwitch.addEventListener('click', () => { authMode = authMode === 'login' ? 'register' : 'login'; updateAuthModal(); });
   
-authForm.addEventListener('submit', event => {
+authForm.addEventListener('submit', async event => {
     event.preventDefault();
+    
+    // Cambiamos el texto del botón para que el usuario sepa que está cargando
+    const submitBtn = $('#auth-submit');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `Verificando... <span>⏳</span>`;
+
     const form = new FormData(authForm);
     const username = String(form.get('username') || '').trim().replace(/\s+/g, '');
     const password = String(form.get('password') || '').trim();
-    if (username.length < 3 || password.length < 4) return showToast('Revisa tu nombre de usuario y contraseña');
     
-    const accounts = getAccounts();
-    const existing = accounts.find(account => account.username.toLowerCase() === username.toLowerCase());
-    
-    if (authMode === 'register') {
-      if (existing) return showToast('Ese nombre de usuario ya existe');
-      accounts.push({ username, password, createdAt: new Date().toISOString() });
-      saveAccounts(accounts);
-    } else {
-      if (!existing || existing.password !== password) {
-        return showToast('Usuario o contraseña incorrectos');
-      }
+    if (username.length < 3 || password.length < 4) {
+      showToast('Revisa tu nombre de usuario y contraseña');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      return;
     }
-    
-    state.currentUser = { username: existing ? existing.username : username };
-    localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser));
-    renderAccountButton();
-    closeAuth();
-    showToast(authMode === 'register' ? `¡Bienvenido, @${username}!` : `Iniciaste sesión como @${username}`);
-    if (publishAfterAuth) { publishAfterAuth = false; openPublish(); }
+
+    try {
+      if (authMode === 'register') {
+        // 1. Verificar si el usuario ya existe en Supabase
+        const { data: existingUser } = await _supabase
+          .from('usuarios')
+          .select('*')
+          .eq('username', username)
+          .maybeSingle();
+
+        if (existingUser) {
+          showToast('Ese nombre de usuario ya existe');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          return;
+        }
+
+        // 2. Guardar el nuevo usuario en Supabase
+        const { error } = await _supabase
+          .from('usuarios')
+          .insert([{ username, password }]);
+
+        if (error) {
+          showToast('Error al registrar usuario: ' + error.message);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          return;
+        }
+
+        state.currentUser = { username };
+        localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser));
+        renderAccountButton();
+        closeAuth();
+        showToast(`¡Bienvenido a GastroMind, @${username}!`);
+        if (publishAfterAuth) { publishAfterAuth = false; openPublish(); }
+
+      } else {
+        // 3. Validar inicio de sesión en Supabase
+        const { data: user, error } = await _supabase
+          .from('usuarios')
+          .select('*')
+          .eq('username', username)
+          .eq('password', password)
+          .maybeSingle();
+
+        if (error || !user) {
+          showToast('Usuario o contraseña incorrectos');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          return;
+        }
+
+        state.currentUser = { username: user.username };
+        localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser));
+        renderAccountButton();
+        closeAuth();
+        showToast(`Iniciaste sesión como @${user.username}`);
+        if (publishAfterAuth) { publishAfterAuth = false; openPublish(); }
+      }
+    } catch (err) {
+      showToast('Error de conexión con la base de datos');
+    } finally {
+      // Restauramos el botón a su estado normal
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    }
   });
 
   // Evento corregido para publicar plato en Supabase
