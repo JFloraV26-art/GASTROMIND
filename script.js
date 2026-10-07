@@ -317,12 +317,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   authSwitch.addEventListener('click', () => { authMode = authMode === 'login' ? 'register' : 'login'; updateAuthModal(); });
   
-  authForm.addEventListener('submit', event => {
+authForm.addEventListener('submit', event => {
     event.preventDefault();
     const form = new FormData(authForm);
     const username = String(form.get('username') || '').trim().replace(/\s+/g, '');
-    const password = String(form.get('password') || '');
+    const password = String(form.get('password') || '').trim();
     if (username.length < 3 || password.length < 4) return showToast('Revisa tu nombre de usuario y contraseña');
+    
     const accounts = getAccounts();
     const existing = accounts.find(account => account.username.toLowerCase() === username.toLowerCase());
     
@@ -330,11 +331,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (existing) return showToast('Ese nombre de usuario ya existe');
       accounts.push({ username, password, createdAt: new Date().toISOString() });
       saveAccounts(accounts);
-    } else if (!existing || existing.password !== password) {
-      return showToast('Usuario o contraseña incorrectos');
+    } else {
+      if (!existing || existing.password !== password) {
+        return showToast('Usuario o contraseña incorrectos');
+      }
     }
     
-    state.currentUser = { username };
+    state.currentUser = { username: existing ? existing.username : username };
     localStorage.setItem('gastromind-current-user', JSON.stringify(state.currentUser));
     renderAccountButton();
     closeAuth();
